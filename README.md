@@ -98,7 +98,7 @@ Input image (224x224)
 ### Installation
 
 ```bash
-git clone https://github.com/lyeonsl/Phase-Guided-Moe-Routing.git
+git clone https://github.com/smwu-realworld-deepfake-2026/Phase-Guided-Moe-Routing.git
 cd Phase-Guided-Moe-Routing
 pip install -r requirements.txt
 ```
@@ -154,6 +154,7 @@ python train.py \
     --learning_rate 3e-5 \
     --device 0
 ```
+> Note: `train.py` always enables the PhaseModule. Baseline and JPEG Augmentation results were obtained with the original MoE-FFD code.
 
 ### With JPEG Augmentation
 
@@ -181,7 +182,7 @@ python train.py \
     --learning_rate 3e-5 \
     --device 0 \
     --jpeg_aug \
-    --use_phase
+    --use_freq_module (phase)
 ```
 
 ### Training Options
@@ -196,7 +197,7 @@ python train.py \
 | `--learning_rate` | 3e-5 | Adam learning rate |
 | `--device` | 0 | GPU index |
 | `--jpeg_aug` | False | Enable JPEG compression augmentation |
-| `--use_phase` | False | Enable PhaseModule |
+| `--use_freq_module` | True | Enable PhaseModule (always on) |
 | `--uncertainty_routing` | False | Enable entropy-based adaptive Top-k routing |
 | `--entropy_thresh` | 1.0 | Entropy threshold for uncertainty routing |
 
